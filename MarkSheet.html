@@ -1,24 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Results</title>
+    <link rel="stylesheet" href="./css/MarkSheet.css">
 </head>
+
 <body>
-    <fieldset style="width:600px">
-        <legend><b>Student Input Section:</b></legend>
-        Name:<input type="text" id="txtName">   
-        Class:<input type="text" id="txtClass"> <br/><br/>
-        <table border="1">
-            <tr><td>English</td><td><input type="text" id="txtEnglish"></td></tr>
-            <tr><td>Kannada</td><td><input type="text" id="txtKannada"></td></tr>
-            <tr><td>Maths</td><td><input type="text" id="txtMaths"></td></tr>
-            <tr><td>Science</td><td><input type="text" id="txtScience"></td></tr>             
-        </table><br/><br/>
-        <input type="button" value="Get Result">
-    </fieldset>
+    <table cellspacing="5" bgcolor="white">
+        <h2>Marks Input</h2>
+        <tr>
+            <th rowspan="2">Name</th>
+            <th colspan="4">Score</th>
+        </tr>
+        <tr>
+            <th>Hindi</th>
+            <th>English</th>
+            <th>Math</th>
+            <th>C Programming</th>
+        </tr>
+        <tr>
+            <td><input type="text" id="aname"></td>
+            <td><input type="text" id="am"></td>
+            <td><input type="text" id="aj"></td>
+            <td><input type="text" id="ad"></td>
+            <td><input type="text" id="an"></td>
+        </tr>
+        <tr>
+            <th colspan="5">
+                <input type="submit" value="Add To Table" onclick="Sub()">
+            </th>
+        </tr>
+    </table>
+    <br>
+    <table cellspacing="5" bgcolor="white" id="TableScore">
+        <h2>Answer Sheet</h2>
+        <tr>
+            <th>Name</th>
+            <th>Total</th>
+            <th>Average</th>
+            <th>Pass Or Fail</th>
+        </tr>
+    </table>
+
+    <script src="js/MarkSheet.js"></script>
+
 </html>
 </body>
+
 </html>

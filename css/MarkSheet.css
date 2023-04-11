@@ -1,0 +1,29 @@
+body {
+    background-color: burlywood;
+    padding: 25px;
+}
+
+table {
+    margin: 0 auto;
+    border: 2px solid rgb(42, 165, 161);
+}
+
+h2 {
+    border-top: 2px solid brown;
+    border-bottom: 2px solid brown;
+    text-align: center;
+}
+
+th {
+    padding: 12px;
+    border: 2px dotted;
+    color: rgb(199, 147, 4);
+    border: 2px solid rgb(42, 165, 161);
+}
+
+td {
+    padding: 15px;
+    border: 2px dotted;
+    color: rgb(125, 175, 18);
+    border: 2px solid rgb(42, 165, 161);
+}
