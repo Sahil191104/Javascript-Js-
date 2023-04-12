@@ -12,3 +12,13 @@ console.log(c);
 let s = 10, t = 20, u;
 t--;
 console.log(t);
+
+let n = 5, m = 10;
+5 < 10 &&  5!=10 ? console.log("False"): console.log("True");
+5 > 10 ||  5!=10 ? console.log("False"): console.log("True");
+!(5!=10) ? console.log("False"): console.log("True");
+
+let e = true, w = "50";
+console.log(typeof e);
+console.log(typeof s);
+console.log(typeof w);

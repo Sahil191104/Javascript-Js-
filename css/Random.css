@@ -1,0 +1,28 @@
+body {
+    background-color: burlywood;
+}
+
+h2 {
+    text-align: center;
+}
+
+table {
+    
+}
+
+#demo,
+#demo1 {
+    padding: 30px;
+    border: 2px solid darkolivegreen;
+    background-color: cadetblue;
+}
+
+input::placeholder {
+    font-size: 12px;
+}
+
+#demo2 {
+    padding: 30px;
+    color: rgb(56, 139, 126);
+    font-size: 30px;
+}

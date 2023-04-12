@@ -1,10 +1,11 @@
+function Sub(){
 var n, k, r, e, v, sum, avg;
 
 n = (document.getElementById('aname').value);
-k = parseFloat(document.getElementById('am').value);
-r = parseFloat(document.getElementById('aj').value);
-e = parseFloat(document.getElementById('ad').value);
-v = parseFloat(document.getElementById('an').value);
+k = parseInt(document.getElementById('am').value);
+r = parseInt(document.getElementById('aj').value);
+e = parseInt(document.getElementById('ad').value);
+v = parseInt(document.getElementById('an').value);
 
 sum=k+r+e+v;
 avg=sum/4;
@@ -24,4 +25,6 @@ if (avg < 40) {
     cell1.innerHTML="Fail";
 } else {
     cell1.innerHTML="Pass";
+}
+
 }
