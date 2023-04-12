@@ -6,8 +6,8 @@ h2 {
     text-align: center;
 }
 
-table {
-    
+#main {
+    width: 100px;
 }
 
 #demo,
@@ -25,4 +25,9 @@ input::placeholder {
     padding: 30px;
     color: rgb(56, 139, 126);
     font-size: 30px;
+}
+
+#demo3,
+#demo7 {
+    float: right;
 }
