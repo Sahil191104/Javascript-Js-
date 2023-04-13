@@ -1,0 +1,72 @@
+body {
+    background: linear-gradient(to right, #ffa17f, #00223e);
+    font-family: Dancing Script;
+}
+
+.back {
+    filter: blur(8px);
+}
+
+.main {
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.1);
+    /* Black w/opacity/see-through */
+    color: white;
+    border: 1px solid rgb(202, 202, 202);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    padding: 20px;
+}
+
+#deo{
+    padding-top: 20px;
+    padding-right: 85px;
+    float: left;
+    padding-left: 0;
+    font-size: 20px;
+}
+
+#fon {
+    background: linear-gradient(to right, #ffbda4, #003560);
+    border: 2px solid rgb(202, 202, 202);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 30px;
+}
+
+input::placeholder {
+    font-size: 14px;
+    color: white;
+    border: none;
+}
+
+#num1,
+#num2,
+#num3,
+#num4 {
+    font-size: 16px;
+    width: 150px;
+    height: 25px;
+    border: none;
+    background-color: #ffd4c5;
+    border-radius: 3px;
+    float: left;
+}
+
+#main-input{
+    font-family: Dancing Script;
+    cursor: pointer;
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 15px;
+    font-size: 25px;
+    padding: 5px 15px;
+    color: white;
+    background: linear-gradient(to right, #ffbda4, #003560);
+}
