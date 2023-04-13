@@ -9,10 +9,11 @@ function randome() {
     console.log(x, z);
 
     if (z == x) {
-        console.log("true");
+        alert("true Answer")
     } else {
-        alert("Wrong Answer!");
-        alert("The Corect Answer is");
-        alert(z);
+        alert("Wrong Answer!" + "The Corect Answer is " + z);
     }
+
+    location.reload();
+    
 }

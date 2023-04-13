@@ -6,29 +6,27 @@ function BMI_Calculate() {
     let w = z * z;
     let o = y/w;
 
+    var newTable = document.getElementById('result');
+
     if (o < 16) {
-        alert(o);
-        alert("Severe Thinness");
+        result.innerhtml
+        alert(o + "Severe Thinness");
     } else if (o > 16 && o < 17) {
-        alert(o);
-        alert("Moderate Thinness");
+        alert(o + "Moderate Thinness");
     } else if (o > 17 && o < 18.5) {
-        alert(o);
-        alert("Mild Thinness");
+        alert(o + "Mild Thinness");
     } else if (o > 18.5 && o < 25) {
-        alert(o);
-        alert("Normal");
+        alert(o + "Normal");
     } else if (o > 25 && o < 30) {
-        alert(o);
-        alert("Overweight");
+        alert(o + "Overweight");
     } else if (o > 30 && o < 35) {
-        alert(o);
-        alert("Obese Class I");
+        alert(o + "Obese Class I");
     } else if (o > 35 && o < 40) {
-        alert(o);
-        alert("Obese Class II");
+        alert(o + "Obese Class II");
     } else if (o > 40) {
-        alert(o);
-        alert("Obese Class III");
+        alert(o + "Obese Class III");
     }
+
+    location.reload();
+
 }
