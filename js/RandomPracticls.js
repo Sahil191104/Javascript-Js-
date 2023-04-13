@@ -1,16 +1,16 @@
 let x = Math.floor(Math.random() * 10);
 let y = Math.floor(Math.random() * 10);
 
+document.getElementById("num1").innerHTML = x;
+document.getElementById("num2").innerHTML = y;
+
 let z = x + y;
 
 function randome() {
-    parseInt(document.getElementById("nmu1")) = x;
-    parseInt(document.getElementById("nmu2")) = y;
+    let o = parseInt(document.getElementById("demo3").value);
 
-    let x = parseInt(document.getElementById("demo3").value);
-
-    if (z === x) {
-        alert("true Answer")
+    if (z === o) {
+        alert("true Answer");
     } else {
         alert("Wrong Answer!" + "The Corect Answer is " + z);
     }
