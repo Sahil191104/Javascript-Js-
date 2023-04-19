@@ -46,3 +46,13 @@ function btnkeyup() {
 function onfocusm() {
     
 }
+
+window.onload = function() {
+    console.log("Page in load");
+}
+window.onunload = function() {
+    console.log("Page in Unload");
+}
+window.onresize = function() {
+    console.log("Page in Resize");
+}

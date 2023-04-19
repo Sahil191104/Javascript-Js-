@@ -11,18 +11,24 @@
     <link rel="stylesheet" href="css/Focues.css">
     <title>Document</title>
     <style>
-        input {
+        input,
+        input:focus,
+        input:active{
             border-radius: 5px;
             outline: none;
+            border: 2px solid black;
         }
+        #error #icon {
+            display: none;
+        }
+
     </style>
 </head>
 
 <body>
-    <div class="back"></div>
     <form id="Form" action="">
         <input type="email" name="email" id="email" placeholder="Email address"><BR>
-        <span id="error"></span></BR>
+        <span id="error"><i id="icon" class="fa-solid fa-triangle-exclamation"></i></span></BR>
         <input type="password" name="password" id="password" placeholder="Password"><BR>
         <span id="error1"></span></BR>
         <input type="submit" id="btn" value="Log in">
