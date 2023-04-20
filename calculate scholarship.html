@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/calculate scholarship.css">
+    <style>
+        input,
+        #Cast_Criteria,
+        button {
+            border-radius: 5px;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="grade">
+        <th>Fees:- </th>
+        <input type="text" id="scholarship" placeholder="Enter of Scholarship"><br><br>
+        <th>CGPA:- </th>
+        <input type="text" id="cgpa" placeholder="Enter of CGPA">
+    </form>
+
+    <br>
+
+    <select name="Grade" id="Cast_Criteria">
+        <option value="Cast">Cast Criteria</option>
+        <option value="Open">Open</option>
+        <option value="OBC">OBC</option>
+        <option value="SC">SC</option>
+        <option value="ST">ST</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="cgopaclick()">Submit</button>
+
+    <div id="answer"></div>
+    <div id="answer1"></div>
+    <div id="answer2"></div>
+
+    <script src="js/calculate scholarship.js"></script>
+
+</body>
+
+</html>

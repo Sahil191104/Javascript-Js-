@@ -42,7 +42,7 @@ function onfocusm() {
         document.getElementById("error").innerHTML = "";
         document.getElementById("password").style.borderColor = "#d7d2cc";
         document.getElementById("error1").innerHTML = "";
-    } 
+    }
 }
 
 function onfocusm1() {
@@ -52,7 +52,7 @@ function onfocusm1() {
         document.getElementById("error1").innerHTML = "Wrong password. Try again or click Forgot password to reset it.";
         document.getElementById("email").style.borderColor = "red";
         document.getElementById("error").style.color = "red";
-        document.getElementById("error").innerHTML = "The email address you entered isn't connected to an account.";        
+        document.getElementById("error").innerHTML = "The email address you entered isn't connected to an account.";
     } else {
         document.getElementById("password").style.borderColor = "#d7d2cc";
         document.getElementById("error1").innerHTML = "";
