@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/Tretment.css">
+</head>
+
+<body>
+    <center>
+        <select name="Treatment" id="treatment" onchange="tretmenttable()">
+            <option value="select">Select</option>
+            <option value="t">Teeth Cleanings</option>
+            <option value="f">Filings</option>
+            <option value="r">Root Canal Treatment</option>
+            <option value="c">RCT + Cover</option>
+            <option value="b">Braces/Invisalign</option>
+        </select>
+    </center>
+
+    <center>
+        <table id="maintable">
+            <tr id="mainsentense">
+                <th>Treatment</th>
+                <th>Seating</th>
+                <th>Costing</th>
+            </tr>
+            <tr id="mainshort1">
+                <th id="one"></th>
+                <th id="one1"></th>
+                <th id="one2"></th>
+            </tr>
+        </table>
+    </center>
+
+    <script src="js/Tretment.js"></script>
+
+</body>
+
+</html>
