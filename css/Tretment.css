@@ -5,11 +5,33 @@
     background-color: burlywood;
     border-radius: 5px;
 }
+#maintable1 {
+    /* border: 2px solid black; */
+    margin-top: 16%;
+    display: none;
+    background-color: burlywood;
+    border-radius: 5px;
+}
+
+#datemain {
+    margin-top: 2%;
+}
+
+#datetable {
+    cursor: pointer;
+    display: none;
+}
 
 select {
     cursor: pointer;
     border-radius: 5px;
     background-color: burlywood;
+}
+
+#book {
+    display: none;
+    width: 150px;
+    margin-top: 2%;
 }
 
 select option {
@@ -19,8 +41,6 @@ select option {
 table {
     border: 2px solid black;
 }
-
-
 
 th {
     border: 2px solid black;
@@ -33,7 +53,8 @@ input {
     border: 2px solid rgb(134, 134, 134);
     border-radius: 5px;
 }
-button{
+
+button {
     padding: 5px 30px;
     /* outline: none; */
     border: 2px solid rgb(134, 134, 134);
@@ -44,11 +65,18 @@ button{
     background-color: rgb(165, 191, 192);
 }
 
+
+
 #mainshort {
     border: 2px solid black;
 }
 
 #mainsentense {
+    border: 2px solid black;
+    background-color: rgb(196, 113, 113);
+}
+
+#mainsentense1 {
     border: 2px solid black;
     background-color: rgb(196, 113, 113);
 }
