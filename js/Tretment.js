@@ -7,10 +7,14 @@ function tretmenttable() {
     let s = document.getElementById("one1");
     let q = document.getElementById("one2");
 
+    document.getElementById("container").style.display = "inline-block";
+    // document.getElementById("container1").style.display = "inline-block";
     document.getElementById("maintable").style.display = "inline-block";
     document.getElementById("datetable").style.display = "inline-block";
     document.getElementById("book").style.display = "inline-block";
     if (trementv === 'select') {
+        document.getElementById("container").style.display = "none";
+        document.getElementById("container1").style.display = "none";
         document.getElementById("maintable").style.display = "none";
         document.getElementById("datetable").style.display = "none";
         document.getElementById("book").style.display = "none";
@@ -39,18 +43,20 @@ function tretmenttable() {
 
 function myDateFormat() {
     var dateControl = document.getElementById("datetable");
-    console.log(dateControl.value);
+    // console.log(dateControl.value);
     const [year, month, day] = dateControl.value.split('-');
     const result = [day, month, year].join('-');
     document.getElementById("two1").innerHTML = result;
 }
 
 function tretmentbutton() {
-    b = document.getElementById("one1").value;
-    for (i=1; i<=b; i++) {
-        document.getElementById("two").innerHTML= b;
-    }
 
+    // for (i=1; i<=s; i++) {
+    //     d = q / s;
+    //     document.getElementById("two").innerHTML= d;
+    // }
+    document.getElementById("container1").style.display = "inline-block";
+    document.getElementById("container").style.display = "none";
     document.getElementById("maintable").style.display = "none";
     document.getElementById("datetable").style.display = "none";
     document.getElementById("book").style.display = "none";
