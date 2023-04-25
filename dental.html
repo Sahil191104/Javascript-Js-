@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .maindnetle {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #tretment,
+        button {
+            cursor: pointer;
+        }
+
+        #dentaltable {
+            display: none;
+        }
+
+        #dentaltable table tr th,
+        #dentaltable table tr td {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="maindnetle">
+        <select name="tretment" id="tretment" onchange="handleselect()">
+            <option value="select">--Select--</option>
+            <option value="t">Teeth Cleanings</option>
+            <option value="f">Filings</option>
+            <option value="r">Root Canal Treatment</option>
+            <option value="c">RCT + Cover</option>
+            <option value="b">Braces/Invisalign</option>
+        </select>
+
+        <div id="dentaltable">
+            <table border="1">
+                <tr>
+                    <th>Treatment</th>
+                    <th>Seating</th>
+                    <th>Costing</th>
+                </tr>
+                <tr>
+                    <td id="tre"></td>
+                    <td id="sea"></td>
+                    <td id="cos"></td>
+                </tr>
+            </table>
+            <input type="date" id="aptdate">
+            <button id="aptbutton">Book Apt</button>
+        </div>
+    </div>
+    <script src="js/dental.js"></script>
+
+</body>
+
+</html>

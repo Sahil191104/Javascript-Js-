@@ -87,6 +87,7 @@ body {
 }
 
 select {
+    border-radius: 10px;
     padding: 5px;
     margin-top: 5%;
     margin-bottom: 12%;
