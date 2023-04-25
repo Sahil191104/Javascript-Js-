@@ -1,11 +1,25 @@
 let x = document.getElementById("treatment");
 
+let t_c = 1, t_s = 500,
+    f_c = 2, f_s = 1500,
+    r_c = 4, r_s = 2500,
+    c_c = 6, c_s = 12000,
+    b_c = 12, b_s = 35000,
+    final_c, sea_c, cos_c;
+
+const callintre = (t, c, s) => {
+    document.getElementById("one").innerHTML = t;
+    document.getElementById("one1").innerHTML = c;
+    document.getElementById("one2").innerHTML = s;
+    
+    final_c = t;
+    sea_c = c;
+    cos_c = s;
+}
+
 function tretmenttable() {
     let trementv = x.value;
     let y = document.getElementById("mainsentense");
-    let o = document.getElementById("one");
-    let s = document.getElementById("one1");
-    let q = document.getElementById("one2");
 
     document.getElementById("container").style.display = "inline-block";
     // document.getElementById("container1").style.display = "inline-block";
@@ -15,42 +29,46 @@ function tretmenttable() {
     if (trementv === 'select') {
         document.getElementById("container").style.display = "none";
         document.getElementById("container1").style.display = "none";
-        document.getElementById("maintable").style.display = "none";
-        document.getElementById("datetable").style.display = "none";
         document.getElementById("book").style.display = "none";
     } else if (trementv === 't') {
-        o.innerHTML = "Teeth Cleanings";
-        s.innerHTML = 1;
-        q.innerHTML = 500;
+        callintre("Teeth Cleanings", t_c, t_s);
     } else if (trementv === 'f') {
-        o.innerHTML = "Filings";
-        s.innerHTML = 2;
-        q.innerHTML = 1500;
+        callintre("Filings", f_c, f_s);
     } else if (trementv === 'r') {
-        o.innerHTML = "Root Canal Treatment";
-        s.innerHTML = 4;
-        q.innerHTML = 2500;
+        callintre("Root Canal Treatment", r_c, r_s);
     } else if (trementv === 'c') {
-        o.innerHTML = "RCT + Cover";
-        s.innerHTML = 6;
-        q.innerHTML = 12000;
+        callintre("RCT + Cover", c_c, c_s);
     } else if (trementv === 'b') {
-        o.innerHTML = "Braces/Invisalign";
-        s.innerHTML = 12;
-        q.innerHTML = 35000;
+        callintre("Braces/Invisalign", b_c, b_s);
     }
 }
 
-function myDateFormat() {
-    var dateControl = document.getElementById("datetable");
-    // console.log(dateControl.value);
-    const [year, month, day] = dateControl.value.split('-');
-    const result = [day, month, year].join('-');
-    document.getElementById("two1").innerHTML = result;
+const aptappoit = () => {
+    let refbutton = document.getElementById("datetable").value
+    console.log(refbutton, final_c, sea_c, cos_c);
+
+    let newda = new Date(refbutton);
+    document.getElementById("two1").innerHTML = newda;
+    
+    for ( i=0; i<sea_c-1; i++) {
+        newda.setDate(newda.getDate() + 7);
+        document.getElementById("two1").innerHTML = newda;
+        // var newTable = document.getElementById("maintable1");
+        // var row = newTable.insertRow(-1);
+        // var cell1 = row.insertCell(0);
+        // var cell2 = row.insertCell(0);
+        // var cell3 = row.insertCell(0);
+        
+        // cell1.innerHTML = 1;
+        // cell2.innerHTML = newda;
+        // cell3.innerHTML = 750;
+        // cell3.innerHTML = 
+    }
 }
 
-function tretmentbutton() {
+document.addEventListener("click", aptappoit);
 
+function tretmentbutton() {
     // for (i=1; i<=s; i++) {
     //     d = q / s;
     //     document.getElementById("two").innerHTML= d;
