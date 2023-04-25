@@ -8,7 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 500px;
-    height: 400px;
+    height: 460px;
     display: none;
 }
 
@@ -35,7 +35,7 @@ body {
 #container i:nth-child(3),
 #container1 i:nth-child(3) {
     border-radius: 50% 50% 50% 50% / 50% 50% 50% 50% ;
-    animation: animate2 6s reverse infinite;
+    animation: animate2 8s reverse infinite;
 }
 
 #container:hover i,
