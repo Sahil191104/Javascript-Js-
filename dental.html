@@ -20,7 +20,8 @@
             cursor: pointer;
         }
 
-        #dentaltable {
+        #dentaltable,
+        #pr-plan {
             display: none;
         }
 
@@ -32,6 +33,7 @@
 </head>
 
 <body>
+
     <div class="maindnetle">
         <select name="tretment" id="tretment" onchange="handleselect()">
             <option value="select">--Select--</option>
@@ -56,9 +58,12 @@
                 </tr>
             </table>
             <input type="date" id="aptdate">
-            <button id="aptbutton">Book Apt</button>
+            <button id="aptbutton" onclick="aptappoit()">Book Apt</button>
         </div>
     </div>
+
+    <div id="pr-plan"></div>
+
     <script src="js/dental.js"></script>
 
 </body>

@@ -18,7 +18,7 @@ const callintre = (t, c, s) => {
 const handleselect = () => {
     let val = document.getElementById("tretment").value;
 
-    dentaltable.style.display = "block";
+    document.getElementById("dentaltable").style.display = "block";
     if (val === "select") {
         document.getElementById("dentaltable").style.display = "none";
     } else if (val === "t") {
@@ -36,15 +36,38 @@ const handleselect = () => {
 
 const aptappoit = () => {
     let refbutton = document.getElementById("aptdate").value
-    console.log(refbutton, final_c, sea_c, cos_c);
 
     let newda = new Date(refbutton);
-    console.log(newda);
-    
-    for ( i=0; i<sea_c-1; i++) {
-        newda.setDate(newda.getDate() + 7);
-        console.log(newda);
-    }
-}
 
-document.addEventListener("click", aptappoit);
+    h = cos_c / sea_c;
+
+    let print = '';
+
+    print += '<table border="1"><tr><th>Treatment</th><th>Seating</th><th>Costing</th></tr><tr>'
+
+    for (i = 1; i <= sea_c; i++) {
+        if (i === 1) {
+            print += '<tr>';
+            print += '<td>' + i + '</td>';
+            print += '<td>' + newda.toLocaleDateString() + '</td>';
+            print += '<td>' + h + '</td>';
+            print += '</tr>';
+            console.log(i, h, newda.toLocaleDateString());
+        } else {
+            newda.setDate(newda.getDate() + 7);
+            print += '<tr>';
+            print += '<td>' + i + '</td>';
+            print += '<td>' + newda.toLocaleDateString() + '</td>';
+            print += '<td>' + h + '</td>';
+            print += '</tr>';
+            console.log(i, h, newda.toLocaleDateString());
+        };
+    };
+
+    print += '</table>';
+    console.log(print);
+
+    document.getElementById("pr-plan").innerHTML = print;
+    document.getElementById("pr-plan").style.display = "inline-block";
+
+};

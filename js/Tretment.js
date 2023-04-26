@@ -45,34 +45,41 @@ function tretmenttable() {
 
 const aptappoit = () => {
     let refbutton = document.getElementById("datetable").value
-    console.log(refbutton, final_c, sea_c, cos_c);
 
     let newda = new Date(refbutton);
-    document.getElementById("two1").innerHTML = newda;
     
-    for ( i=0; i<sea_c-1; i++) {
-        newda.setDate(newda.getDate() + 7);
-        document.getElementById("two1").innerHTML = newda;
-        // var newTable = document.getElementById("maintable1");
-        // var row = newTable.insertRow(-1);
-        // var cell1 = row.insertCell(0);
-        // var cell2 = row.insertCell(0);
-        // var cell3 = row.insertCell(0);
-        
-        // cell1.innerHTML = 1;
-        // cell2.innerHTML = newda;
-        // cell3.innerHTML = 750;
-        // cell3.innerHTML = 
-    }
+    h = cos_c / sea_c;
+
+    let print = '';
+
+    print += '<table border="1"><tr><th>Treatment</th><th>Seating</th><th>Costing</th></tr><tr>'
+
+    for (i = 1; i <= sea_c; i++) {
+        if (i === 1) {
+            print += '<tr>';
+            print += '<td>' + i + '</td>';
+            print += '<td>' + newda.toLocaleDateString() + '</td>';
+            print += '<td>' + h + '</td>';
+            print += '</tr>';
+            console.log(i, h, newda.toLocaleDateString());
+        } else {
+            newda.setDate(newda.getDate() + 7);
+            print += '<tr>';
+            print += '<td>' + i + '</td>';
+            print += '<td>' + newda.toLocaleDateString() + '</td>';
+            print += '<td>' + h + '</td>';
+            print += '</tr>';
+            console.log(i, h, newda.toLocaleDateString());
+        };
+    };
+
+    print += '</table>';
+    console.log(print);
+
+    document.getElementById("container1").innerHTML = print;
 }
 
-document.addEventListener("click", aptappoit);
-
-function tretmentbutton() {
-    // for (i=1; i<=s; i++) {
-    //     d = q / s;
-    //     document.getElementById("two").innerHTML= d;
-    // }
+function tretmentbutton() {    
     document.getElementById("container1").style.display = "inline-block";
     document.getElementById("container").style.display = "none";
     document.getElementById("maintable").style.display = "none";
