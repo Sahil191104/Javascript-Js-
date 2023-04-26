@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>Dairy production System</title>
+    <link rel="stylesheet" href="css/Dairy_production.css">
+</head>
+
+<body>
+
+    <center>
+        <table id="maintable">
+            <tr id="mainsentense">
+                <th>Available Milk</th>
+                <th>product</th>
+                <th>Kg</th>
+                <th>ltr</th>
+                <th>Ready/Not Ready</th>
+            </tr>
+            <tr id="mainshort">
+                <td rowspan="5"><input type="number" name="number" id="milk" placeholder="Enter the Income Tax"></td>
+            </tr>
+            <tr id="mainshort">
+                <td>Butter Milk:</td>
+                <td><input type="number" id="one"></td>
+                <td><input type="number" id="one1" disabled></td>
+                <td id="ans1"></td>
+            </tr>
+            <tr id="mainshort">
+                <td>Curd:</td>
+                <td><input type="number" id="two"></td>
+                <td><input type="number" id="two1" disabled></td>
+                <td id="ans2"></td>
+            </tr>
+            <tr id="mainshort">
+                <td>Puner:</td>
+                <td><input type="number" id="three"></td>
+                <td><input type="number" id="three1" disabled></td>
+                <td id="ans3"></td>
+            </tr>
+            <tr id="mainshort">
+                <td>Cheese:</td>
+                <td><input type="number" id="four"></td>
+                <td><input type="number" id="four1" disabled></td>
+                <td id="ans4"></td>
+            </tr>
+            <tr><th colspan="5"><br></th></tr>
+            <tr>
+                <th colspan="5"><button onclick="productiontable()">Submit</button></th>
+            </tr>
+            <!-- <tr><th colspan="4"><br></th></tr> -->
+        </table>
+    </center>
+
+    <script src="js/Dairy_production.js"></script>
+    
+</body>
+
+</html>

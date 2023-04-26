@@ -43,7 +43,7 @@ function tretmenttable() {
     }
 }
 
-const aptappoit = () => {
+function aptappoit() {
     let refbutton = document.getElementById("datetable").value
 
     let newda = new Date(refbutton);
@@ -52,11 +52,11 @@ const aptappoit = () => {
 
     let print = '';
 
-    print += '<table border="1"><tr><th>Treatment</th><th>Seating</th><th>Costing</th></tr><tr>'
+    print += '<table id="maintable1"><tr id="mainsentense"><th>Treatment</th><th>Seating</th><th>Costing</th></tr>';
 
     for (i = 1; i <= sea_c; i++) {
         if (i === 1) {
-            print += '<tr>';
+            print += '<tr id="mainshort2">';
             print += '<td>' + i + '</td>';
             print += '<td>' + newda.toLocaleDateString() + '</td>';
             print += '<td>' + h + '</td>';
@@ -64,7 +64,7 @@ const aptappoit = () => {
             console.log(i, h, newda.toLocaleDateString());
         } else {
             newda.setDate(newda.getDate() + 7);
-            print += '<tr>';
+            print += '<tr id="mainshort2">';
             print += '<td>' + i + '</td>';
             print += '<td>' + newda.toLocaleDateString() + '</td>';
             print += '<td>' + h + '</td>';
@@ -77,9 +77,7 @@ const aptappoit = () => {
     console.log(print);
 
     document.getElementById("container1").innerHTML = print;
-}
-
-function tretmentbutton() {    
+    
     document.getElementById("container1").style.display = "inline-block";
     document.getElementById("container").style.display = "none";
     document.getElementById("maintable").style.display = "none";
@@ -87,3 +85,7 @@ function tretmentbutton() {
     document.getElementById("book").style.display = "none";
     document.getElementById("maintable1").style.display = "inline-block";
 }
+
+// function tretmentbutton() {    
+    
+// }
