@@ -9,11 +9,13 @@ function productiontable() {
     let cur = t * 3;
     let pau = h * 6;
     let che = f * 10;
+    let total2, total3, total4;
+
     let total1 = m - but;
     if (total1 <= m) {
         document.getElementById("one1").value = but;
         document.getElementById("ans1").innerHTML = "Ready";
-    } else if (-1 <= m) {
+    } else if (m >= total1) {
         document.getElementById("one1").value = 0;
         document.getElementById("ans1").innerHTML = "Not Ready";
     }
