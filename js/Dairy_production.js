@@ -15,7 +15,7 @@ function productiontable() {
     if (total1 <= m) {
         document.getElementById("one1").value = but;
         document.getElementById("ans1").innerHTML = "Ready";
-    } else if (m >= total1) {
+    } else {
         document.getElementById("one1").value = 0;
         document.getElementById("ans1").innerHTML = "Not Ready";
     }
