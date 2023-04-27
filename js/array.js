@@ -1,4 +1,4 @@
-let array = [5,4,8,22,9,1,];
+let array = [5,4,8,22,9,1];
 
 // isArray
 // console.log(Array.isArray(array));
@@ -17,11 +17,11 @@ let array = [5,4,8,22,9,1,];
 // console.log(array.find((v) => v > 10));
 
 // splice
-array.splice(4, 0,"mango","kiwi");
-console.log(array);
+// array.splice(4, 0,"mango","kiwi");
+// console.log(array);
 
-array.splice(1, 4);
-console.log(array);
+// array.splice(1, 4);
+// console.log(array);
 
 // Update
 // array[3] = 99;
@@ -51,8 +51,8 @@ console.log(array);
 //     console.log(v);
 // });
 
-// array.map((v,i) => {
-//     console.log(v);
-// });
+array.map((v,i) => {
+    console.log(v);
+});
 
 // array.map((v,i) => console.log(v));

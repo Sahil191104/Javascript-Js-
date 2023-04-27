@@ -9,10 +9,10 @@ function productiontable() {
     let cur = t * 3;
     let pau = h * 6;
     let che = f * 10;
-    let total2, total3, total4;
+    let total1,total2, total3, total4;
 
-    let total1 = m - but;
-    if (total1 <= m) {
+    if (but <= m) {
+        total1 = m - but;
         document.getElementById("one1").value = but;
         document.getElementById("ans1").innerHTML = "Ready";
     } else {
@@ -20,33 +20,30 @@ function productiontable() {
         document.getElementById("ans1").innerHTML = "Not Ready";
     }
 
-    // if (total2 = total1 - cur) {
-    //     if (total2 <= total1) {
-    //         document.getElementById("two1").value = cur;
-    //         document.getElementById("ans2").innerHTML = "Ready";
-    //     }
-    // } else if (-1 <= total1) {
-    //     document.getElementById("two1").value = 0;
-    //     document.getElementById("ans2").innerHTML = "Not Ready";
-    // }
+    if (cur <= m) {
+        total2 = m - cur;
+        document.getElementById("two1").value = cur;
+        document.getElementById("ans2").innerHTML = "Ready";
+    } else {
+        document.getElementById("two1").value = 0;
+        document.getElementById("ans2").innerHTML = "Not Ready";
+    }
 
-    // if (total3 = total2 - pau) {
-    //     if (total3 <= total2) {
-    //         document.getElementById("three").value = pau;
-    //         document.getElementById("ans3").innerHTML = "Ready";
-    //     }
-    // } else if (-1 <= total2) {
-    //     document.getElementById("three").value = 0;
-    //     document.getElementById("ans3").innerHTML = "Not Ready";
-    // }
+    if (pau <= m) {
+        total3 = m - pau;
+        document.getElementById("three1").value = pau;
+            document.getElementById("ans3").innerHTML = "Ready";
+    } else {
+        document.getElementById("three1").value = 0;
+        document.getElementById("ans3").innerHTML = "Not Ready";
+    }
 
-    // if (total4 = total3 - che) {
-    //     if (total4 <= total3) {
-    //         document.getElementById("four1").value = che;
-    //         document.getElementById("ans4").innerHTML = "Ready";
-    //     }
-    // } else if (-1 <= total3) {
-    //     document.getElementById("four1").value = 0;
-    //     document.getElementById("ans4").innerHTML = "Not Ready";
-    // }
+    if (che <= m) {
+        total4 = m - che;
+        document.getElementById("four1").value = che;
+            document.getElementById("ans4").innerHTML = "Ready";
+    } else {
+        document.getElementById("four1").value = 0;
+        document.getElementById("ans4").innerHTML = "Not Ready";
+    }
 }
