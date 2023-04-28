@@ -118,10 +118,9 @@ const frdublicat = (arr7) => {
 
     arr7.map((a) => {
         if (!unique.includes(a)) {
-            
+            unique.push(a);
         }
     });
-
     console.log(unique);
 }
 
