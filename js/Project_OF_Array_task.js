@@ -127,3 +127,22 @@ const frdublicat = (arr7) => {
 frdublicat(arr7);
 
 console.log("-----------10-----------");
+
+// 10.    Merging two arrays into a new array.
+let array1 = [1, 2, 3];
+let array2 = [4, 5, 6];
+let newArray = array1.concat(array2);
+console.log(newArray); // Output: [1, 2, 3, 4, 5, 6]
+
+console.log("-----------11-----------");
+
+// 11.    Splitting an array into two arrays based on a condition.
+// 12.    Searching for an element in an array using binary search.
+// 13.    Rotating an array by a given number of positions.
+// 14.    Finding the second largest element in an array.
+// 15.    Finding the k-th smallest element in an array.
+// 16.    Finding the frequency of each element in an array.
+// 17.    Finding the median of an array.
+// 18.    Finding the mode of an array.
+// 19.    Checking if two arrays are equal or not.
+// 20.    Finding the union of two arrays.
