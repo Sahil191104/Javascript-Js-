@@ -93,33 +93,6 @@ console.log(evenArray);
 console.log(oddArray);
 // Syntax:- array.filter(function(currentValue, index, arr), thisValue)
 
-// 12. Searching for an element in an array using binary search.
-function binarySearch(array, target) {
-    let left = 0;
-    let right = array.length - 1;
-
-    while (left <= right) {
-
-        let middle = Math.floor((left + right) / 2);
-        console.log(array);
-
-        if (array[middle] === target) {
-            return middle;
-        } else if (array[middle] < target) {
-            left = middle + 1;
-        } else {
-            right = middle - 1;
-        }
-    }
-
-    return -1;
-}
-
-    // let array = [1, 2, 3, 4, 5, 6];
-    let target = 2;
-    let index = binarySearch(array, target);
-    console.log(index);
-
 // 13. Rotating an array by a given number of positions.
 function rotateArray(array, positions) {
     let extractedElements = array.slice(0, positions); // select Use to
@@ -155,3 +128,41 @@ function findKthSmallest(array, k) {
     let k = 3;
     let kthSmallest = findKthSmallest(arraya, k);
     console.log(kthSmallest);
+
+// 17. Finding the median of an array.
+function findmedian (arr) {
+    let len = arr.length;
+
+    let ans = arr.sort((a,b) => a - b);
+
+    let median = Math.floor(len/2);
+
+    return ans[median];
+}
+
+let arr = [5,9,1,3,4,5,0];
+console.log(findmedian(arr));
+
+// 19. Checking if two arrays are equal or not.
+function Checkequal (array_1,array_2) {
+
+    // console.log(array_1[length]);
+    
+    if (array_1.length === array_2.length) {
+        // console.log("The Array is Same");
+        for (let i=0; i<array_1.length; i++) {
+            if (array_1[i] === array_2[i]) {
+                // console.log(array_1[length]);
+                return true;
+            } else {
+                return false;
+            }
+        }
+    } else {
+        console.log("The Array in length Not Same");
+    }
+}
+
+let array_1 = [1, 2, 3, 4, 5];
+let array_2 = [1, 2, 3, 4, 5];
+console.log(Checkequal(array_1,array_2));
