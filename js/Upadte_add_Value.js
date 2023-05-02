@@ -1,4 +1,5 @@
 let foremref = document.getElementById("todo-form");
+let foremdelet = document.getElementById("disp");
 
 let array = [];
 
@@ -11,7 +12,7 @@ const handeleInsert = () => {
     print = '<ul>';
 
     array.map((t) => {
-        print += '<li>' + t + '<button>' + '<i class="fa-sharp fa-solid fa-trash"></i>' +'</button>' + '</li>';
+        print += '<li>' + t + '<button id="btn">' + '<i class="fa-sharp fa-solid fa-trash"></i>' +'</button>' + '</li>';
     });
 
     print += '</ul>';
@@ -22,3 +23,14 @@ const handeleInsert = () => {
 }
 
 foremref.addEventListener("submit", handeleInsert);
+
+const deletbut = () => {
+    // for (let i=0; i<foremdelet.length; i++) {
+    //     foremdelet[i].onclik = function() {
+    //         this.parentNode.removeChild
+    //     }
+    // }
+    document.getElementById("disp").style.display = "none";
+}
+
+foremdelet.addEventListener("click", deletbut);
