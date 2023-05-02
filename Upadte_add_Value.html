@@ -9,40 +9,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        #ans,
-        i {
-            display: none;
-        }
-
-        #main {
-            display: flex;
-        }
-
-        i {
-            margin-top: 7px;
-            margin-left: 5px;
-            font-size: 20px
-        }
-    </style>
-
 </head>
 
 <body>
 
-
-    <input type="text" name="todo" id="todo" placeholder="Enter a data"><br><br>
-
-    <button onclick="todoData()">submit</button><br><br>
-
-    <div id="main">
-        <p id="ans">
-
-        </p>
-        <i id="i" onclick="remove()"><i class="fa-solid fa-xmark"></i></i>
-
+    <form action="" id="todo-form">
+        <input type="text" id="out" placeholder="Please enter any Input">
+        <input type="submit">
+    </form>
+    <div id="disp">
+    <!-- <i class="fa-sharp fa-solid fa-trash"></i> -->
     </div>
-
 
     <script src="./js/Upadte_add_Value.js "></script>
 </body>

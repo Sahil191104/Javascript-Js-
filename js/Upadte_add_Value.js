@@ -1,37 +1,24 @@
-let arr = [];
+let foremref = document.getElementById("todo-form");
 
-const todoData = () =>{
+let array = [];
 
-let val = document.getElementById("todo").value;
-
-// console.log(val);    
-
-    document.getElementById("ans").innerHTML = val;
-    document.getElementById("ans").style.display = 'block';
-    // document.getElementById("i").style.display = 'block'
-
-        arr.push(val);
-        console.log(arr.toString());
-        
-        //  arr[val];
-        
-
-    let print = '<ul>';
-    arr.map((a) =>{
-        print = print + '<li>' + a + "" + '</li>'; 
-
-    print =print + '</ul>'
-    document.getElementById('ans').innerHTML = print;
+const handeleInsert = () => {
+    let val = document.getElementById("out").value;
     
+    array.push(val);
+    console.log(array);
+
+    print = '<ul>';
+
+    array.map((t) => {
+        print += '<li>' + t + '<button>' + '<i class="fa-sharp fa-solid fa-trash"></i>' +'</button>' + '</li>';
     });
 
-console.log(a);
+    print += '</ul>';
 
+    document.getElementById("disp").innerHTML = print;
+
+    event.preventDefault();
 }
 
-const remove = () =>{
-
-    document.getElementById("ans").innerHTML = '';
-    document.getElementById("i").innerHTML = '';
-
-}
+foremref.addEventListener("submit", handeleInsert);

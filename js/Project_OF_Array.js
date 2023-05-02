@@ -131,38 +131,48 @@ function findKthSmallest(array, k) {
 
 // 17. Finding the median of an array.
 function findmedian (arr) {
-    let len = arr.length;
-
     let ans = arr.sort((a,b) => a - b);
 
-    let median = Math.floor(len/2);
+    let median = Math.floor(ans.length/2);
+    console.log(ans);
+    if (ans.length % 2 === 0) {
+        let j = (ans[median] + ans[median - 1]) / 2;
+        console.log(j);
+    } else {
+        console.log(ans[median]);
+    }
 
-    return ans[median];
 }
 
-let arr = [5,9,1,3,4,5,0];
-console.log(findmedian(arr));
+let arr = [5,9,1,3,5,4,5,0];
+findmedian(arr);
 
 // 19. Checking if two arrays are equal or not.
+let array_1 = [1, 2, 3, 4, 5];
+let array_2 = [1, 2, 3, 4, 5];
 function Checkequal (array_1,array_2) {
+    let flag = 0;
 
     // console.log(array_1[length]);
-    
-    if (array_1.length === array_2.length) {
+    if (array_1.length !== array_2.length) {
+        flag = 2;
+    } else {
         // console.log("The Array is Same");
         for (let i=0; i<array_1.length; i++) {
-            if (array_1[i] === array_2[i]) {
+            if (array_1[i] !== array_2[i]) {
                 // console.log(array_1[length]);
-                return true;
-            } else {
-                return false;
+                flag = 1;
             }
         }
+    }
+
+    if (flag === 1 ) {
+        console.log("The arrays are Not equal to");
+    } else if (flag === 2) {
+        console.log("Array is length in Not Same");
     } else {
-        console.log("The Array in length Not Same");
+        console.log("The arrays are equal to");
     }
 }
 
-let array_1 = [1, 2, 3, 4, 5];
-let array_2 = [1, 2, 3, 4, 5];
-console.log(Checkequal(array_1,array_2));
+Checkequal(array_1,array_2);
