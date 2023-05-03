@@ -1,36 +1,72 @@
 let foremref = document.getElementById("todo-form");
-let foremdelet = document.getElementById("disp");
 
 let array = [];
+upadate =false;
+uid = null;
 
 const handeleInsert = () => {
     let val = document.getElementById("out").value;
-    
-    array.push(val);
-    console.log(array);
 
+    array.push(val);
+
+    tabletodo();
+
+    console.log("ssssss");
+
+    document.getElementById("out").value = "";
+
+    event.preventDefault();
+}
+
+const tabletodo = () => {
     print = '<ul>';
 
-    array.map((t) => {
-        print += '<li>' + t + '<button id="btn">' + '<i class="fa-sharp fa-solid fa-trash"></i>' +'</button>' + '</li>';
+    array.map((t, i) => {
+        print += '<li>' + t + '<button onclick="changetodo('+ i +')"><i class="fa-solid fa-pen-to-square"></i></button>' +'<button id="btn" onclick="deletbut(' + i + ')">' + '<i class="fa-sharp fa-solid fa-trash"></i>' + '</button>' + '</li>';
     });
 
     print += '</ul>';
 
     document.getElementById("disp").innerHTML = print;
+}
+
+const deletbut = (i) => {
+    array.splice(i, 1);
+
+    tabletodo();
+}
+
+const changetodo = (i) => {
+
+    upadate = true;
+    uid = i;
+
+    document.getElementById("out").value = array[i];
+}
+
+const todonew = () => {
+    console.log("dfhhh");
+
+    let newval = document.getElementById("out").value
+
+    array[uid] = newval;
+
+    upadate = false;
+    uid = null;
+
+    document.getElementById("out").value = "";
 
     event.preventDefault();
 }
 
-foremref.addEventListener("submit", handeleInsert);
+const tododes = () => {
+    if (upadate) {
+        todonew();
+    } else {
+        handeleInsert();
+    }
 
-const deletbut = () => {
-    // for (let i=0; i<foremdelet.length; i++) {
-    //     foremdelet[i].onclik = function() {
-    //         this.parentNode.removeChild
-    //     }
-    // }
-    document.getElementById("disp").style.display = "none";
+    event.preventDefault();
 }
 
-foremdelet.addEventListener("click", deletbut);
+foremref.addEventListener("submit", tododes);
