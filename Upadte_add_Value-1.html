@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="" id="todo-form">
+        <input type="text" id="input" placeholder="Please enter any number">
+        <input type="submit">
+    </form>
+
+    <div id="dis">
+
+    </div>
+
+    <script>
+        let fromref = document.getElementById("todo-form");
+        arr = [];
+        upadat = false;
+
+        const handleres = () => {
+            let val = document.getElementById("input").value;
+
+            arr.push(val);
+            console.log(arr);
+
+            document.getElementById("input").value = "";
+
+            printed();
+
+            event.preventDefault();
+        }
+
+        const printed = () => {
+            print = '<ul>';
+
+            arr.map((v, i) => {
+                print += '<li>' + v + '<button onclick="addtodo(' + i + ')"><i class="fa-solid fa-pen-to-square"></i></button>' + '<button onclick="removetodo(' + i + ')"><i class="fa-solid fa-xmark"></i></button>' + '</li>'
+            })
+            print += '</ul>';
+
+            document.getElementById("dis").innerHTML = print;
+        }
+
+        const removetodo = (i) => {
+            arr.splice(i, 1);
+            printed();
+        }
+
+        const addtodo = (i) => {
+            upadat = true;
+            uid = i;
+
+            document.getElementById("out").value = arr[i];
+        }
+
+        const todonew = () => {
+
+            let = newdata = document.getElementById("input").value;
+
+            upadat = false;
+            uid = null;
+
+
+        }
+
+        const tododisplayed = () => {
+            if (upadat) {
+                todonew();
+            }
+
+            event.preventDefault();
+        }
+
+        fromref.addEventListener("submit", handleres);
+    </script>
+
+</body>
+
+</html>

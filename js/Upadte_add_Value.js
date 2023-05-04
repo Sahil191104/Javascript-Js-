@@ -11,6 +11,8 @@ const handeleInsert = () => {
 
     tabletodo();
 
+    localStorage.setItem("todo",JSON.stringify(array));
+
     console.log("ssssss");
 
     document.getElementById("out").value = "";
@@ -21,7 +23,9 @@ const handeleInsert = () => {
 const tabletodo = () => {
     print = '<ul>';
 
-    array.map((t, i) => {
+    let locadata = JSON.parse(localStorage.getItem("todo"));
+
+    locadata.map((t, i) => {
         print += '<li>' + t + '<button onclick="changetodo('+ i +')"><i class="fa-solid fa-pen-to-square"></i></button>' +'<button id="btn" onclick="deletbut(' + i + ')">' + '<i class="fa-sharp fa-solid fa-trash"></i>' + '</button>' + '</li>';
     });
 
@@ -32,6 +36,7 @@ const tabletodo = () => {
 
 const deletbut = (i) => {
     array.splice(i, 1);
+    localStorage.setItem("todo",JSON.stringify(array));
 
     tabletodo();
 }
@@ -53,6 +58,7 @@ const todonew = () => {
 
     upadate = false;
     uid = null;
+    localStorage.setItem("todo",JSON.stringify(array));
 
     document.getElementById("out").value = "";
 
@@ -70,3 +76,5 @@ const tododes = () => {
 }
 
 foremref.addEventListener("submit", tododes);
+
+window.onload = tabletodo;
