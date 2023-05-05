@@ -1,19 +1,22 @@
 let foremref = document.getElementById("todo-form");
 
 let array = [];
-upadate =false;
+upadate = false;
 uid = null;
 
 const handeleInsert = () => {
     let val = document.getElementById("out").value;
+    let locadata = JSON.parse(localStorage.getItem("todo"));
 
-    array.push(val);
+    if (locadata) {
+        locadata.push(val);
+        localStorage.setItem("todo", JSON.stringify(locadata));
+    } else {
+        array.push(val);
+        localStorage.setItem("todo", JSON.stringify(array));
+    }
 
     tabletodo();
-
-    localStorage.setItem("todo",JSON.stringify(array));
-
-    console.log("ssssss");
 
     document.getElementById("out").value = "";
 
@@ -21,46 +24,54 @@ const handeleInsert = () => {
 }
 
 const tabletodo = () => {
-    print = '<ul>';
-
     let locadata = JSON.parse(localStorage.getItem("todo"));
 
-    locadata.map((t, i) => {
-        print += '<li>' + t + '<button onclick="changetodo('+ i +')"><i class="fa-solid fa-pen-to-square"></i></button>' +'<button id="btn" onclick="deletbut(' + i + ')">' + '<i class="fa-sharp fa-solid fa-trash"></i>' + '</button>' + '</li>';
-    });
+    if (locadata) {
+        let print = '<ol>';
 
-    print += '</ul>';
+        locadata.map((t, i) => {
+            print += '<li>' + t + '<button onclick="changetodo(' + i + ')"><i class="fa-solid fa-pen-to-square"></i></button>' + '<button id="btn" onclick="deletbut(' + i + ')">' + '<i class="fa-sharp fa-solid fa-trash"></i>' + '</button>' + '</li>';
+        });
 
-    document.getElementById("disp").innerHTML = print;
+        print += '</ol>';
+
+        document.getElementById("disp").innerHTML = print;
+    }
+
 }
 
 const deletbut = (i) => {
-    array.splice(i, 1);
-    localStorage.setItem("todo",JSON.stringify(array));
+    let locadata = JSON.parse(localStorage.getItem("todo"));
+
+    locadata.splice(i, 1);
+    localStorage.setItem("todo", JSON.stringify(locadata));
 
     tabletodo();
 }
 
 const changetodo = (i) => {
+    let locadata = JSON.parse(localStorage.getItem("todo"));
 
     upadate = true;
     uid = i;
 
-    document.getElementById("out").value = array[i];
+    document.getElementById("out").value = locadata[i];
 }
 
 const todonew = () => {
-    console.log("dfhhh");
+    let locadata = JSON.parse(localStorage.getItem("todo"));
 
     let newval = document.getElementById("out").value
 
-    array[uid] = newval;
+    locadata[uid] = newval;
 
     upadate = false;
     uid = null;
-    localStorage.setItem("todo",JSON.stringify(array));
+    localStorage.setItem("todo", JSON.stringify(locadata));
 
     document.getElementById("out").value = "";
+
+    tabletodo();
 
     event.preventDefault();
 }

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log("------------------1-----------------");
+        console.log("Person1");
+
+        const person1 = {
+            name: "amit",
+            Age: "20"
+        }
+        console.log(person1.name, person1.Age);
+        console.log(person1['name'], person1['Age']);
+
+        console.log("------------------2-----------------");
+        console.log("Person2");
+
+        const person2 = [
+            {
+                name: "Amit",
+                age: 25,
+            },
+            {
+                name: "Piyush",
+                age: 40,
+            }
+        ];
+        person2.map((v, i) => console.log(v.name, v.age));
+
+        console.log("------------------3-----------------");
+        console.log("Person3");
+
+        const person3 = [
+            {
+                name: "Amit",
+                age: 25,
+                course: [
+                    "c",
+                    "html"
+                ]
+            }
+        ];
+
+        person3.map((p3) => {
+            console.log(p3.name, p3.age);
+            p3.course.map((p3) => console.log(p3))
+        });
+        console.log("------------------4-----------------");
+        console.log("Person4");
+    </script>
+</body>
+
+</html>
