@@ -48,13 +48,86 @@
                 ]
             }
         ];
-
         person3.map((p3) => {
             console.log(p3.name, p3.age);
             p3.course.map((p3) => console.log(p3))
         });
+
         console.log("------------------4-----------------");
         console.log("Person4");
+
+        const myObj = {
+            name: "jd",
+            age: 20,
+            cars: {
+                car1: "ford",
+                car2: "breza",
+                car3: "BMW"
+            }
+        }
+        console.log(myObj.name, myObj.age, myObj.cars.car1, myObj.cars.car2, myObj.cars.car3);
+
+        console.log("------------------5-----------------");
+        console.log("Person5");
+
+        const person5 = [
+            {
+                name: "amit",
+                age: 19,
+                course1: {
+                    Course1: "c",
+                    Course2: "html"
+                }
+            },
+            {
+                name: "mayur",
+                age: 20,
+                course2: {
+                    Course1: "c",
+                    Course2: "html"
+                }
+            }
+        ];
+        // person5.map((p5) => {
+        //     console.log(p5.name, p5.age, p5.course1.Course1, p5.course1.Course2, p5.course2.Course1, p5.course2.Course2);
+        // });
+
+        console.log("------------------6-----------------");
+        console.log("Person6");
+
+        let data = {
+            personal_info: {
+                name: 'amit',
+                age: 25,
+                city: 'surat'
+            },
+            courses: ["C", "JavaScript", "React"],
+            branches: {
+                b1: {
+                    admission: 50,
+                    vacant_seat: 10
+                },
+                b2: {
+                    admission: 30,
+                    vacant_seat: 20
+                },
+                b3: {
+                    admission: 25,
+                    vacant_seat: 25
+                },
+                b4: {
+                    admission: 40,
+                    vacant_seat: 10
+                }
+            }
+        }
+        console.log(data.personal_info.name, data.personal_info.age, data.personal_info.city);
+        data.courses.map((p6) => console.log(p6));
+        console.log(data.branches.b1.admission, data.branches.b1.vacant_seat);
+        console.log(data.branches.b2.admission, data.branches.b2.vacant_seat);
+        console.log(data.branches.b3.admission, data.branches.b3.vacant_seat);
+        console.log(data.branches.b4.admission, data.branches.b4.vacant_seat);
+
     </script>
 </body>
 
