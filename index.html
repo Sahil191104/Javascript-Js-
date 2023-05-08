@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stationary</title>
+
+    <!-- KANIT GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            background: #F6F1F1;
+            color: #454545;
+            font-family: 'Kanit', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            background: #7C96AB;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+
+        .box input,
+        .box button {
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .box input {
+            background: #F6F1F1;
+            color: #454545;
+            padding: 14px;
+            width: 300px;
+        }
+
+        .box input::-webkit-outer-spin-button,
+        .box input::-webkit-inner-spin-button {
+            display: none;
+        }
+
+        .box button {
+            background: #454545;
+            color: #F6F1F1;
+            transition: all 400ms ease-in-out;
+            text-transform: uppercase;
+            padding: 14px 25px;
+        }
+
+        .box button:hover {
+            background: #F6F1F1;
+            color: #454545;
+        }
+
+        .box #StationaryItems li {
+            color: #F6F1F1;
+            margin: 5px 0;
+        }
+
+        .box #StationaryItems li:nth-child(1) {
+            margin-top: 10px;
+        }
+
+        .box #StationaryItems #StationaryItemsSum {
+            color: #F6F1F1;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="box">
+        <form id="StationaryForm">
+            <input type="number" id="StationaryInput" placeholder="Enter Your Total Item">
+            <button type="submit">Submit</button>
+        </form>
+        <div id="StationaryItems"></div>
+        <div id="StationaryItemsSum"></div>
+    </div>
+    
+
+
+    <script>
+        let StationaryForm = document.querySelector("#StationaryForm");
+        let ary = [];
+
+        let print = () => {
+
+            let sum = 0;
+            let data = JSON.parse(localStorage.getItem("Stationary"));
+            let print = '<ol>';
+            if (data) {
+                data.map((value) => {
+                    if (value !== '') {
+                        print += '<li>' + value + '</li>';
+                        sum += parseInt(value);
+                    }
+                });
+            }
+            print += '</ol>';
+            document.querySelector("#StationaryItems").innerHTML = print;
+            document.querySelector("#StationaryItemsSum").innerHTML = 'total = ' + sum;
+
+            let StationaryInput = document.querySelector("#StationaryInput");
+            StationaryInput.value = '';
+        }
+
+        StationaryForm.addEventListener("submit", () => {
+            let StationaryInput = document.querySelector("#StationaryInput").value;
+            ary.push(StationaryInput);
+
+            localStorage.setItem("Stationary", JSON.stringify(ary));
+            print();
+
+            event.preventDefault();
+        });
+
+        window.onload = print;
+
+    </script>
+
+</body>
+
+</html>
