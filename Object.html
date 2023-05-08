@@ -17,8 +17,14 @@
             name: "amit",
             Age: "20"
         }
-        console.log(person1.name, person1.Age);
-        console.log(person1['name'], person1['Age']);
+        // riat:-1
+        // console.log(person1.name, person1.Age);
+        // riat:-2
+        // console.log(person1['name'], person1['Age']);
+        // riat:-3
+        for (let k in person1) {
+            console.log(person1[k]);
+        }
 
         console.log("------------------2-----------------");
         console.log("Person2");
@@ -33,6 +39,7 @@
                 age: 40,
             }
         ];
+        // riat:-1
         person2.map((v, i) => console.log(v.name, v.age));
 
         console.log("------------------3-----------------");
@@ -48,6 +55,7 @@
                 ]
             }
         ];
+        // riat:-1
         person3.map((p3) => {
             console.log(p3.name, p3.age);
             p3.course.map((p3) => console.log(p3))
@@ -65,7 +73,18 @@
                 car3: "BMW"
             }
         }
-        console.log(myObj.name, myObj.age, myObj.cars.car1, myObj.cars.car2, myObj.cars.car3);
+        // riat:-1
+        // console.log(myObj.name, myObj.age, myObj.cars.car1, myObj.cars.car2, myObj.cars.car3);
+        // riat:-2
+        for (let s in myObj) {
+            if (s === 'cars') {
+                for (let h in myObj[s]) {
+                    console.log(myObj[s][h]);
+                }
+            } else {
+                console.log(myObj[s]);
+            }
+        }
 
         console.log("------------------5-----------------");
         console.log("Person5");
@@ -74,23 +93,39 @@
             {
                 name: "amit",
                 age: 19,
-                course1: {
-                    Course1: "c",
-                    Course2: "html"
+                course: {
+                    c1: "c",
+                    c2: "html"
                 }
             },
             {
                 name: "mayur",
                 age: 20,
-                course2: {
-                    Course1: "c",
-                    Course2: "html"
+                course: {
+                    c1: "c",
+                    c2: "html"
                 }
             }
         ];
-        // person5.map((p5) => {
-        //     console.log(p5.name, p5.age, p5.course1.Course1, p5.course1.Course2, p5.course2.Course1, p5.course2.Course2);
+        // riat:-1
+        // person5.map((person5) => {
+        //     for (let g in person5) {
+        //         if (g === 'course') {
+        //             for (let j in person5[g]) {
+        //                 console.log(person5[g][j]);
+        //             }
+        //         } else {
+        //             console.log(person5[g]);
+        //         }
+        //     }
         // });
+        // riat:-2
+        person5.map((v) => {
+            console.log(v.name, v.age);
+            for (let d in v.course) {
+                console.log(v.course[d]);
+            }
+        });
 
         console.log("------------------6-----------------");
         console.log("Person6");
@@ -121,12 +156,28 @@
                 }
             }
         }
-        console.log(data.personal_info.name, data.personal_info.age, data.personal_info.city);
-        data.courses.map((p6) => console.log(p6));
-        console.log(data.branches.b1.admission, data.branches.b1.vacant_seat);
-        console.log(data.branches.b2.admission, data.branches.b2.vacant_seat);
-        console.log(data.branches.b3.admission, data.branches.b3.vacant_seat);
-        console.log(data.branches.b4.admission, data.branches.b4.vacant_seat);
+        // riat:-1
+        // console.log(data.personal_info.name, data.personal_info.age, data.personal_info.city);
+        // data.courses.map((p6) => console.log(p6));
+        // console.log(data.branches.b1.admission, data.branches.b1.vacant_seat);
+        // console.log(data.branches.b2.admission, data.branches.b2.vacant_seat);
+        // console.log(data.branches.b3.admission, data.branches.b3.vacant_seat);
+        // console.log(data.branches.b4.admission, data.branches.b4.vacant_seat);
+
+        // riat:-2
+        for (let u in data) {
+            if (u === 'personal_info') {
+                console.log(data[u].name,data[u].age,data[u].city);
+            } else if (u === 'courses') {
+                data[u].map((l) => {
+                    console.log(l);
+                });
+            } else if (u === 'branches') {
+                for (let a in data[u]) {
+                    console.log(data[u][a].admission,data[u][a].vacant_seat);
+                }
+            }
+        }
 
     </script>
 </body>

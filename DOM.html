@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body>
+
+    <div id="demo">
+    </div>
+
+    <script>
+        let h1ref = document.createElement("h1");
+        let h1Textref = document.createTextNode("Hello World!");
+        h1ref.style.color = "red";
+        h1ref.appendChild(h1Textref);
+        let divref = document.getElementById("demo");
+        divref.appendChild(h1ref);
+
+        let a = document.createElement("a");
+        let aTex = document.createTextNode("Home");
+        a.setAttribute("href", "#");
+        a.setAttribute("onclick", "clicka()");
+        a.style.color = "green";
+        a.appendChild(aTex);
+        divref.appendChild(a);
+        
+        a.clicka = () => {
+            console.log("clicked");
+        }
+    </script>
+</body>
+
+</html>
