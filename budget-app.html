@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <style>
+        body {
+            background-color: grey;
+        }
+
+        #budgetform,
+        #expenses {
+            width: 200px;
+            border: 1px solid #000;
+            margin: 0 auto;
+            margin-top: 2%;
+        }
+
+        #budget {
+            margin: 10px;
+        }
+
+        #amount {
+            margin: 10px;
+        }
+
+        img {
+            width: 50px;
+            padding-left: 50px;
+            mix-blend-mode: color-burn;
+        }
+
+        .main {
+            display: flex;
+        }
+
+        .data {
+            width: 150px;
+            height: 170px;
+            margin: 10px;
+        }
+
+        .data h2 {
+            text-align: center;
+        }
+
+        #size,
+        #size1,
+        #size4,
+        #size3,
+        #size5,
+        #size2 {
+            font-size: 30px;
+            color: red;
+            margin-top: 10px;
+        }
+
+        #size,
+        #size3,
+        #size5 {
+            padding-left: 10px;
+        }
+
+        #budget-data {
+            padding-top: 31px;
+        }
+
+        #expenses-data,
+        #balance-data {
+            padding-top: 18px;
+            padding-left: 18px;
+        }
+
+        #btn {
+            margin-bottom: 15px;
+            margin-left: 10px;
+        }
+
+        #table1 {
+            display: none;
+            /* display: inline-block; */
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#" id="budgetform">
+        <span id="amount">please Enter your budget</span><br>
+        <input type="number" name="budget" id="budget">
+        <br><br>
+        <button id="btn">calculate</button>
+    </form>
+    <form action="#" id="expenses">
+        <input type="text" name="expenses" id="expname">
+        <input type="number" name="expenses" id="expvalue">
+        <input type="submit">
+    </form>
+
+    <table id="table1" border="2">
+        <thead>
+            <tr>
+                <!-- <th scope="col">NO</th> -->
+                <th scope="col">EXPENSES NAME</th>
+                <th scope="col">EXPENSES COST</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody id="tablebody">
+        </tbody>
+    </table>
+
+    <div class="main">
+        <div class="data">
+            <h2>BUDGET</h2>
+            <img src="./img/images.png" alt="">
+            <div id="budget-data">
+            </div>
+        </div>
+        <div class="data">
+            <h2>EXPENSES</h2>
+            <img src="./img/1.png" alt="">
+            <div id="expenses-data">
+            </div>
+        </div>
+        <div class="data">
+            <h2>BALANCE</h2>
+            <img src="./img/images (1).png " alt="">
+            <div id="balance-data">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/budget-app.js"></script>
+</body>
+
+</html>

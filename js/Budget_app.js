@@ -1,132 +1,118 @@
-// form
-let framtotal = document.createElement("form");
-let h3 = document.createElement("h3");
-let h3tex = document.createTextNode("Budget");
-let framinput1 = document.createElement("input");
-let framinput2 = document.createElement("input");
-let framtotal_1 = document.createElement("form");
-let h3_1 = document.createElement("h3");
-let h3tex_1 = document.createTextNode("Expenses");
-let framinput1_1 = document.createElement("input");
-let framinput1_2 = document.createElement("input");
-let framinput2_1 = document.createElement("input");
-let framdiv = document.createElement("p");
-let framoutput = document.createElement("div");
+let expensesref = document.getElementById("total-amount1");
 
-framtotal.setAttribute("id","total-amount");
-framinput1.setAttribute("type","number");
-framinput1.setAttribute("id","budgetinput");
-framinput1.setAttribute("placeholder","Enter Total Amount");
-framinput2.setAttribute("type","submit");
-framinput2.setAttribute("id","sub");
-framtotal_1.setAttribute("id","total-amount1");
-framinput1_2.setAttribute("type","text");
-framinput1_1.setAttribute("type","number");
-framinput1_1.setAttribute("id","budgetinput1-1");
-framinput1_2.setAttribute("id","budgetinput1");
-framinput1_1.setAttribute("placeholder","Enter Total Expenses");
-framinput1_2.setAttribute("placeholder","Enter Product Name");
-framinput2_1.setAttribute("type","submit");
-framinput2_1.setAttribute("id","sub1");
-framdiv.setAttribute("id","dis");
-framoutput.setAttribute("id","output-container flex-space");
+let expensess = [];
 
-let divref = document.getElementById("sub-container");
+const handlebom = () => {
+    let budget_dataelem = document.createElement("span");
+    let budget_dataelem1 = document.createElement("span");
+    let expenses_dataelem = document.createElement("span");
+    let expenses_dataelem1 = document.createElement("span");
+    let balance_dataelem = document.createElement("span");
+    let balance_dataelem1 = document.createElement("span");
 
-framtotal.appendChild(h3tex);
-divref.appendChild(framtotal);
-framtotal.appendChild(framinput1);
-divref.appendChild(framtotal);
-framtotal.appendChild(framinput2);
-divref.appendChild(framtotal);
-framtotal.appendChild(framdiv);
-divref.appendChild(framtotal);
+    budget_dataelem.setAttribute("id" ,"size1");
+    budget_dataelem1.setAttribute("id" ,"size");
+    expenses_dataelem.setAttribute("id" ,"size4");
+    expenses_dataelem1.setAttribute("id" ,"size3");
+    balance_dataelem.setAttribute("id","size2");
+    balance_dataelem1.setAttribute("id" ,"size5");
 
-framtotal_1.appendChild(h3tex_1);
-divref.appendChild(framtotal_1);
-framtotal_1.appendChild(h3tex_1);
-divref.appendChild(framtotal_1);
-framtotal_1.appendChild(framinput1_2);
-divref.appendChild(framtotal_1);
-framtotal_1.appendChild(framinput1_1);
-divref.appendChild(framtotal_1);
-framtotal_1.appendChild(framinput2_1);
-divref.appendChild(framtotal_1);
-framtotal_1.appendChild(framdiv);
-divref.appendChild(framtotal_1);
+    let budget_datatax1 = document.createTextNode("$0");
+    let expenses_datatax1 = document.createTextNode("$0");
+    let balance_datatax1 = document.createTextNode("$0");
 
-let fremmaininput = document.getElementById("total-amount");
-let fremexpenses = document.getElementById("total-amount1");
-let arr = [];
+    let budget_dataRef=document.getElementById("amount");
+    let expenses_dataRef=document.getElementById("expenititire-value");
+    let balance_dataRef=document.getElementById("Balance-amount");
+    let budgetref = document.getElementById("sub");
 
-const clicka = () => {
-    let val = document.getElementById("budgetinput").value;
-    let val1 = document.getElementById("budgetinput1-1").value;
-    let val2 = document.getElementById("budgetinput1").value;
+    budget_dataelem1.appendChild(budget_datatax1);
+    budget_dataRef.appendChild(budget_dataelem);
+    budget_dataRef.appendChild(budget_dataelem1);
+    expenses_dataelem1.appendChild(expenses_datatax1);
+    expenses_dataRef.appendChild(expenses_dataelem);
+    expenses_dataRef.appendChild(expenses_dataelem1);
+    balance_dataelem1.appendChild(balance_datatax1);
+    balance_dataRef.appendChild(balance_dataelem);
+    balance_dataRef.appendChild(balance_dataelem1);
 
-    arr.push(val);
-    console.log(arr);
+    budgetref.addEventListener("click",handlebudget);
+}
 
-    console.log(val2);
-    let ans = val - val1;
-    if (val === '' || val1 === '' || ans === '' ) {
-        document.getElementById("amount").innerHTML = "$" + "0";
-        document.getElementById("expenititire-value").innerHTML = "$" + "0";
-        document.getElementById("Balance-amount").innerHTML = "$" + "0";
-    }
-    document.getElementById("amount").innerHTML = "$" + val;
-    document.getElementById("expenititire-value").innerHTML = "$" + val1;
-    document.getElementById("Balance-amount").innerHTML = "$" + ans;
-
+function handlebudget(){
+    let x =document.getElementById("budgetinput").value;
+    console.log(x);
+    document.getElementById("size").innerHTML=x;
+    document.getElementById("size5").innerHTML=x;
     document.getElementById("budgetinput").value = "";
-    document.getElementById("budgetinput1-1").value = "";
-    document.getElementById("budgetinput1").value = "";
-
-    expenses();
-    tabletodo();
-
-    document.getElementById("list").innerHTML = val2;
-
     event.preventDefault();
 }
 
-const tabletodo = () => {
-    let print = '<ol>';
+const handledata = () => {
+    let x =document.getElementById("budgetinput").value;
+    console.log(x);
+    let y = 0, sum = 0;
 
-    arr.map((t, i) => {
-        print += '<li>' + t + '<button onclick="changetodo(' + i + ')"><i class="fa-solid fa-pen-to-square"></i></button>' + '<button id="btn" onclick="deletbut(' + i + ')">' + '<i class="fa-sharp fa-solid fa-trash"></i>' + '</button>' + '</li>';
-    });
+    expensess.map((a) => sum += parseInt(a.cost));
+    y = x - sum;
 
-    print += '</ol>';
-
-    document.getElementById("list").innerHTML = print;
+    document.getElementById("size3").innerHTML=sum;
+    document.getElementById("size5").innerHTML=y;
 }
 
-const expenses = () => {
-    let expen = document.getElementById("budgetinput1").value;
-    let amoun = document.getElementById("budgetinput1-1").value;
-    console.log(expen);
-    console.log(amoun);
+const handletable = (name ,value) => {
+    let tr =document.createElement("tr");
+    let td =document.createElement("td");
+    let td1=document.createElement("td");
+    let td2=document.createElement("td");
 
-    let tr = document.createElement("tr");
+    let tdvle =document.createTextNode(name);
+    let tdvle1 =document.createTextNode(value);
 
-    console.log(tr);
-    let td1 = document.createElement("td");
-    let td1tex = document.createTextNode(expen);
-    td1.appendChild(td1tex);
-    tr.appendChild(td1);
+    let button=document.createElement("button");
+    button.classList.add("fa-solid","fa-pen-to-square","edit");
+    button.style.outline = "none";
+    button.style.border = "none";
+
+    let button1=document.createElement("button");
+    button1.classList.add("fa-solid","fa-trash-can","delete");
+    button1.style.outline = "none";
+    button1.style.border = "none";
     
-    let td2 = document.createElement("td");
-    let td2tex = document.createTextNode(amoun);
-    td2.appendChild(td2tex);
+    let tableref =document.getElementById("tablebody");
+
+    td.appendChild(tdvle);
+    tr.appendChild(td);
+    td1.appendChild(tdvle1);
+    tr.appendChild(td1);
+    td2.appendChild(button);
+    td2.appendChild(button1);
+
     tr.appendChild(td2);
 
-    let divreffr = document.getElementById(tbody)
+    tableref.appendChild(tr);
+}
 
-    document.getElementById(divreffr).innerHTML = tr;
+const handleexpeses= () => {
+    let expnameref = document.getElementById("budgetinput1").value;
+    let expvalueref = document.getElementById("budgetinput1-1").value;
+    console.log(expvalueref,expnameref);
 
+    expensess.push({
+        name:expnameref,
+        cost:expvalueref
+    });
+    console.log(expensess);
+
+    document.getElementById("budgetinput1").value = '';
+    document.getElementById("budgetinput1-1").value = '';
+
+    // document.getElementById("table1").style.display = "inline-block";
+
+    handletable(expnameref,expvalueref);
+    handledata();
     event.preventDefault();
 }
 
-fremmaininput.addEventListener("submit", clicka);
-fremexpenses.addEventListener("submit", expenses);
+expensesref.addEventListener("submit",handleexpeses);
+window.onload=handlebom();
