@@ -82,6 +82,7 @@ const clicka = () => {
     document.getElementById("budgetinput1-1").value = "";
     document.getElementById("budgetinput1").value = "";
 
+    expenses();
     tabletodo();
 
     document.getElementById("list").innerHTML = val2;
@@ -102,7 +103,29 @@ const tabletodo = () => {
 }
 
 const expenses = () => {
+    let expen = document.getElementById("budgetinput1").value;
+    let amoun = document.getElementById("budgetinput1-1").value;
+    console.log(expen);
+    console.log(amoun);
 
+    let tr = document.createElement("tr");
+
+    console.log(tr);
+    let td1 = document.createElement("td");
+    let td1tex = document.createTextNode(expen);
+    td1.appendChild(td1tex);
+    tr.appendChild(td1);
+    
+    let td2 = document.createElement("td");
+    let td2tex = document.createTextNode(amoun);
+    td2.appendChild(td2tex);
+    tr.appendChild(td2);
+
+    let divreffr = document.getElementById(tbody)
+
+    document.getElementById(divreffr).innerHTML = tr;
+
+    event.preventDefault();
 }
 
 fremmaininput.addEventListener("submit", clicka);
