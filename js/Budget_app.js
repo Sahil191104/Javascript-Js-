@@ -1,5 +1,4 @@
 let expensesref = document.getElementById("total-amount1");
-
 let expensess = [];
 
 const handlebom = () => {
