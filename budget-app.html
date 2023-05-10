@@ -5,134 +5,140 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body {
-            background-color: grey;
+        h1 {
+            margin-left: 117px;
         }
 
-        #budgetform,
-        #expenses {
-            width: 200px;
-            border: 1px solid #000;
+        #frmdesgin {
+            border-radius: 10px;
             margin: 0 auto;
-            margin-top: 2%;
-        }
-
-        #budget {
-            margin: 10px;
-        }
-
-        #amount {
-            margin: 10px;
-        }
-
-        img {
-            width: 50px;
-            padding-left: 50px;
-            mix-blend-mode: color-burn;
-        }
-
-        .main {
+            margin-top: 20px;
             display: flex;
+            justify-content: space-around;
         }
 
-        .data {
-            width: 150px;
-            height: 170px;
-            margin: 10px;
+        #budgetaddFrom {
+            border: 2px solid green;
+            width: 500px;
+            height: 156px;
+            border-radius: 8px;
         }
 
-        .data h2 {
+        h4 {
+            color: black;
+            display: flex;
+            justify-content: space-around;
+            margin-left: -275px;
+        }
+
+        input {
+            border: 1px solid green;
+            border-radius: 5px;
+            height: 30px;
+            width: 447px;
+            margin-left: 28px;
+        }
+
+        /* button {
+            border: 2px solid green;
+            border-radius: 4px;
+            margin-left: -341px;
+            color: green;
+            background-color: white;
+            height: 30px;
+            width: 80px;
+        } */
+
+        #icondata {
+            display: flex;
+            margin: 20px;
             text-align: center;
+            justify-content: center;
         }
 
-        #size,
-        #size1,
-        #size4,
-        #size3,
-        #size5,
-        #size2 {
-            font-size: 30px;
+        #icondata h2 {
+            color: black;
+            padding: 0 auto;
+        }
+
+        #dollarbudget {
+            color: green;
+        }
+
+        #expensebudget {
             color: red;
-            margin-top: 10px;
         }
 
-        #size,
-        #size3,
-        #size5 {
-            padding-left: 10px;
+        #balancebudget {
+            color: black;
         }
 
-        #budget-data {
-            padding-top: 31px;
-        }
-
-        #expenses-data,
-        #balance-data {
-            padding-top: 18px;
-            padding-left: 18px;
-        }
-
-        #btn {
-            margin-bottom: 15px;
-            margin-left: 10px;
-        }
-
-        #table1 {
-            display: none;
-            /* display: inline-block; */
+        #iconimage {
+            padding: 20px;
         }
     </style>
 </head>
 
 <body>
-    <form action="#" id="budgetform">
-        <span id="amount">please Enter your budget</span><br>
-        <input type="number" name="budget" id="budget">
-        <br><br>
-        <button id="btn">calculate</button>
-    </form>
-    <form action="#" id="expenses">
-        <input type="text" name="expenses" id="expname">
-        <input type="number" name="expenses" id="expvalue">
-        <input type="submit">
-    </form>
+    <h1>BUDGET APP</h1>
+    <div id="frmdesgin">
+        <form action="#" id="budgetaddFrom">
+            <div id="frmdata">
+                <h4> Please Enter Your Budget </h4>
+                <input type="number" id="budgetdata">
+                <br><br>
+                <input type="submit">
+            </div>
+        </form>
 
-    <table id="table1" border="2">
-        <thead>
-            <tr>
-                <!-- <th scope="col">NO</th> -->
-                <th scope="col">EXPENSES NAME</th>
-                <th scope="col">EXPENSES COST</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody id="tablebody">
-        </tbody>
-    </table>
+        <form action="#" method="post" id="expenseForm">
+            <input type="text" name="ExpeData" id="ExpeData" placeholder="Enter Title of Product"> <span
+                id="errorname"></span>
+            <br><br>
+            <input type="number" name="ExpeValue" id="ExpeValue" placeholder="Enter Cost of Product"> <span
+                id="errorcost"></span> <br><br>
 
-    <div class="main">
-        <div class="data">
-            <h2>BUDGET</h2>
-            <img src="./img/images.png" alt="">
-            <div id="budget-data">
+            <input type="submit">
+        </form><br><br>
+
+        <table border="1px" id="listExp">
+            <thead>
+
+                <th>Expense Name</th>
+                <th>Expense Cost</th>
+                <th>Action</th>
+
+            </thead>
+            <tbody id="expenseList">
+
+            </tbody>
+        </table>
+
+
+        <div id="icondata">
+            <div id="budget">
+                <h2>BUDGET</h2>
+                <div id="dollarbudget"></div>
+            </div>
+            <div id="expense">
+                <h2>EXPENSE</h2>
+                <div id="expensebudget"></div>
+            </div>
+            <div id="totalbudget">
+                <h2>BALANCE</h2>
+                <div id="balancebudget"></div>
             </div>
         </div>
-        <div class="data">
-            <h2>EXPENSES</h2>
-            <img src="./img/1.png" alt="">
-            <div id="expenses-data">
-            </div>
-        </div>
-        <div class="data">
-            <h2>BALANCE</h2>
-            <img src="./img/images (1).png " alt="">
-            <div id="balance-data">
-            </div>
-        </div>
+
     </div>
+
+
+
 
     <script src="js/budget-app.js"></script>
 </body>

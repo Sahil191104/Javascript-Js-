@@ -1,115 +1,169 @@
-let expensesref = document.getElementById("expenses")
-const handlebom = () => {
-    let budget_dataelem = document.createElement("span")
-    budget_dataelem.setAttribute("id" ,"size1")
-    let budget_datatax = document.createTextNode("$");
-    
-    let budget_dataelem1 = document.createElement("span")
-    budget_dataelem1.setAttribute("id" ,"size")
-    let budget_datatax1 = document.createTextNode("0");
-    
-    budget_dataelem.appendChild(budget_datatax)
-    budget_dataelem1.appendChild(budget_datatax1)
-    
-    let budget_dataRef=document.getElementById("budget-data")
-    
-    budget_dataRef.appendChild(budget_dataelem)
-    budget_dataRef.appendChild(budget_dataelem1)
-    
-    
-    
-    let expenses_dataelem = document.createElement("span")
-    expenses_dataelem.setAttribute("id" ,"size4")
-    let expenses_datatax = document.createTextNode("$");
-    
-    let expenses_dataelem1 = document.createElement("span")
-    expenses_dataelem1.setAttribute("id" ,"size3")
-    let expenses_datatax1 = document.createTextNode("0");
-    
-    expenses_dataelem.appendChild(expenses_datatax)
-    expenses_dataelem1.appendChild(expenses_datatax1)
-    
-    let expenses_dataRef=document.getElementById("expenses-data")
-    
-    expenses_dataRef.appendChild(expenses_dataelem)
-    expenses_dataRef.appendChild(expenses_dataelem1)
-    
-    
-    let balance_dataelem = document.createElement("span")
-    balance_dataelem.setAttribute("id","size2")
-    let balance_datatax = document.createTextNode("$");
-    
-    let balance_dataelem1 = document.createElement("span")
-    balance_dataelem1.setAttribute("id" ,"size5")
-    let balance_datatax1 = document.createTextNode("0");
-    
-    balance_dataelem.appendChild(balance_datatax)
-    balance_dataelem1.appendChild(balance_datatax1)
-    
-    let balance_dataRef=document.getElementById("balance-data")
-    
-    balance_dataRef.appendChild(balance_dataelem)
-    balance_dataRef.appendChild(balance_dataelem1)
-    
-    let budgetref = document.getElementById("btn")
-    
-    budgetref.addEventListener("click",handlebudget)
-    
+let RefForm = document.getElementById("budgetaddFrom")
+let RefExpForm = document.getElementById("expenseForm")
+
+let RefDivBudget = document.getElementById("budget")
+let RefDivExp = document.getElementById("expense")
+let RefTotalBud = document.getElementById("totalbudget")
+
+let spanBudgetelem = document.createElement("span")
+spanBudgetelem.setAttribute("id", "budgetshow")
+let spanTxtElem = document.createTextNode("0")
+
+spanBudgetelem.appendChild(spanTxtElem)
+
+RefDivBudget.appendChild(spanBudgetelem)
+
+let spanExpenseelem = document.createElement("span")
+spanExpenseelem.setAttribute("id", "expeshow")
+let spanExpenseTxtElem = document.createTextNode("0")
+
+spanExpenseelem.appendChild(spanExpenseTxtElem)
+
+RefDivExp.appendChild(spanExpenseelem)
+
+let spanTotalelem = document.createElement("span")
+spanTotalelem.setAttribute("id", "totalshow")
+let spanTotalTxtElem = document.createTextNode("0")
+
+spanTotalelem.appendChild(spanTotalTxtElem)
+
+RefTotalBud.appendChild(spanTotalelem)
+
+let budgetValue = 0;
+
+const hendalbudgetBtn = () => {
+    let val = document.getElementById("budgetdata").value
+
+    budgetValue = val
+
+
+
+
+    document.getElementById("budgetshow").innerHTML = val
+
+    document.getElementById("budgetdata").value = ''
+
+    expenseClau()
+
+    event.preventDefault()
 }
 
-function handlebudget(){
+let arrExpenseList = []
 
-    let x =document.getElementById("budget").value
-    console.log(x);
-    document.getElementById("size").innerHTML=x
-    document.getElementById("size5").innerHTML=x
-    event.preventDefault();
+
+
+const hendalExpenseBtn = () => {
+    let expdata = document.getElementById("ExpeData").value
+    let expval = parseInt(document.getElementById("ExpeValue").value)
+
+    let rendom = Math.floor(Math.random() * 1000)
+
+    console.log(rendom);
+
+    tmpobject = {
+        id: rendom,
+        ex_name: expdata,
+        ex_amount: expval
+    }
+
+    if (expdata === '') {
+        document.getElementById("errorname").innerHTML = "Please Enter Name"
+    } else if (expval) {
+        document.getElementById("listExp").style.display = "inline-block"
+
+
+        let RefExpList = document.getElementById("expenseList")
+
+        let RefTd = document.createElement("tr")
+        RefTd.setAttribute("id", "row" + rendom);
+
+        RefExpList.appendChild(RefTd)
+
+        let Reftr1elem = document.createElement("td")
+        let Reftr1txt = document.createTextNode(expdata)
+
+        Reftr1elem.appendChild(Reftr1txt)
+        RefTd.appendChild(Reftr1elem)
+
+        let Reftr2elem = document.createElement("td")
+        let Reftr2txt = document.createTextNode(expval)
+
+        Reftr2elem.appendChild(Reftr2txt)
+        RefTd.appendChild(Reftr2elem)
+
+        let trBtnelem = document.createElement("tr")
+
+        let remBtnelem = document.createElement("button")
+        remBtnelem.setAttribute("onclick", "handledelete("+rendom+")")
+        let remtxtelem = document.createTextNode("Delete")
+
+        remBtnelem.appendChild(remtxtelem)
+
+        let Editelem = document.createElement("button")
+
+        let Edittxtelem = document.createTextNode("Edit")
+
+        Editelem.appendChild(Edittxtelem)
+
+        trBtnelem.appendChild(remBtnelem);
+        trBtnelem.appendChild(Editelem)
+
+        RefTd.appendChild(trBtnelem)
+
+        arrExpenseList.push(tmpobject)
+
+        
+
+        expenseClau()
+
+        document.getElementById("errorname").innerHTML = ""
+        document.getElementById("errorcost").innerHTML = ""
+
+        document.getElementById("ExpeData").value = ''
+        document.getElementById("ExpeValue").value = ''
+    } else {
+        document.getElementById("errorcost").innerHTML = "Please Enter Amount"
+    }
+
+    event.preventDefault()
 }
-const handletable = (name ,value) => {
-let tr =document.createElement("tr");
 
-    let td =document.createElement("td");
-    let td1=document.createElement("td");
-    let td2=document.createElement("td");
-    let button=document.createElement("button");
-    let button1=document.createElement("button");
+const expenseClau = () => {
+    let ans = 0;
 
-    let tdvle =document.createTextNode(name);
-    let tdvle1 =document.createTextNode(value)
-    let btn1 =document.createTextNode("Edit");
-    let btn2 =document.createTextNode("Updeta");
-    
-    let tableref =document.getElementById("tablebody")
+    arrExpenseList.map((v) => {
+        ans = ans + v.ex_amount
+    })
 
+    let finalAns = 0
 
-    td.appendChild(tdvle);
-    tr.appendChild(td);
+    finalAns = budgetValue - ans;
+    console.log(budgetValue);
 
-    td1.appendChild(tdvle1);
-    tr.appendChild(td1);
+    document.getElementById("expeshow").innerHTML = ans;
+    document.getElementById("totalshow").innerHTML = finalAns;
 
-    button.appendChild(btn1);
-    button1.appendChild(btn2);
-    td2.appendChild(button);
-    td2.appendChild(button1);   
-    tr.appendChild(td2)
-
-    tableref.appendChild(tr);
 }
-const handleexpeses= () => {
-    let expnameref = document.getElementById("expname").value;
-    let expvalueref = document.getElementById("expvalue").value;
 
-    document.getElementById("expname").value = '';
-    document.getElementById("expvalue").value = '';
+const handledelete = (rendomnumber) => {
+    let RefRen = document.getElementById("row" + rendomnumber);
+    console.log(RefRen);
+    RefRen.remove();
 
-    document.getElementById("table1").style.display="inline-block";
+    // let fData = arrExpenseList.filter((a,i) => a.id === rendomnumber);
 
-    console.log(expvalueref,expnameref);
-    handletable(expnameref,expvalueref);
-    event.preventDefault();
+    arrExpenseList.map((a,i) => {
+        if (a.id === rendomnumber) {
+            arrExpenseList.splice(i,1)
+        }
+    })
+
+    console.log(fData);
+    console.log(RefRen);
+
+    expenseClau();
 }
 
 
-expensesref.addEventListener("submit",handleexpeses)
-window.onload=handlebom();
+RefForm.addEventListener("submit", hendalbudgetBtn)
+RefExpForm.addEventListener("submit", hendalExpenseBtn)

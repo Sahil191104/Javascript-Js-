@@ -1,5 +1,6 @@
 let expensesref = document.getElementById("total-amount1");
 let expensess = [];
+let budgetValue = 0;
 
 const handlebom = () => {
     let budget_dataelem = document.createElement("span");
@@ -39,7 +40,8 @@ const handlebom = () => {
 }
 
 function handlebudget(){
-    let x =document.getElementById("budgetinput").value;
+    let x = document.getElementById("budgetinput").value;
+    budgetValue = x;
     console.log(x);
     document.getElementById("size").innerHTML=x;
     document.getElementById("size5").innerHTML=x;
@@ -48,42 +50,50 @@ function handlebudget(){
 }
 
 const handledata = () => {
-    let x =document.getElementById("budgetinput").value;
-    console.log(x);
-    let y = 0, sum = 0;
+    let y = 0;
+    let sum = 0;
 
     expensess.map((a) => sum += parseInt(a.cost));
-    y = x - sum;
+    console.log(sum);
+
+    y = budgetValue - sum;
 
     document.getElementById("size3").innerHTML=sum;
     document.getElementById("size5").innerHTML=y;
 }
 
-const handletable = (name ,value) => {
+const handletable = (name ,value, randomnum) => {
     let tr =document.createElement("tr");
     let td =document.createElement("td");
     let td1=document.createElement("td");
     let td2=document.createElement("td");
 
+    tr.setAttribute("id", "row" + randomnum);
+
     let tdvle =document.createTextNode(name);
     let tdvle1 =document.createTextNode(value);
 
     let button=document.createElement("button");
-    button.classList.add("fa-solid","fa-pen-to-square","edit");
-    button.style.outline = "none";
-    button.style.border = "none";
+    // button.classList.add("fa-solid","fa-pen-to-square","edit");
+    // button.style.outline = "none";
+    // button.style.border = "none";
+    let btn = document.createTextNode("Edit");
 
     let button1=document.createElement("button");
-    button1.classList.add("fa-solid","fa-trash-can","delete");
-    button1.style.outline = "none";
-    button1.style.border = "none";
-    
+    // button1.classList.add("fa-solid","fa-trash-can","delete");
+    // button1.style.outline = "none";
+    // button1.style.border = "none";
+    button1.setAttribute("onclick", "handledelete("+randomnum+")");
+    let btn1 = document.createTextNode("delete")
+
     let tableref =document.getElementById("tablebody");
 
     td.appendChild(tdvle);
     tr.appendChild(td);
     td1.appendChild(tdvle1);
     tr.appendChild(td1);
+    button.appendChild(btn);
+    button1.appendChild(btn1);
     td2.appendChild(button);
     td2.appendChild(button1);
 
@@ -92,12 +102,34 @@ const handletable = (name ,value) => {
     tableref.appendChild(tr);
 }
 
+const handledelete = (randomnum) => {
+    let trref = document.getElementById("row"+randomnum);
+    console.log(trref);
+    trref.remove();
+
+    // let fData = expensess.filter((a,i) => a.id === randomnum);
+
+    expensess.map((a,i) => {
+        if (a.id === randomnum) {
+            expensess.splice(i, 1);
+        }
+    });
+
+    // console.log(fData);
+
+    handledata();
+}
+
 const handleexpeses= () => {
     let expnameref = document.getElementById("budgetinput1").value;
     let expvalueref = document.getElementById("budgetinput1-1").value;
-    console.log(expvalueref,expnameref);
+    // console.log(expvalueref,expnameref);
+
+    let randomnum = Math.floor(Math.random() * 100);
+    console.log(randomnum);
 
     expensess.push({
+        id:randomnum,
         name:expnameref,
         cost:expvalueref
     });
@@ -108,7 +140,7 @@ const handleexpeses= () => {
 
     // document.getElementById("table1").style.display = "inline-block";
 
-    handletable(expnameref,expvalueref);
+    handletable(expnameref,expvalueref,randomnum);
     handledata();
     event.preventDefault();
 }
