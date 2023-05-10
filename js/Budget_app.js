@@ -48,14 +48,15 @@ function handlebudget(){
 }
 
 const handledata = () => {
-    let x =document.getElementById("budgetinput").value;
+    let x = document.getElementById("budgetinput").value;
     console.log(x);
     let y = 0, sum = 0;
 
     expensess.map((a) => sum += parseInt(a.cost));
+    document.getElementById("size3").innerHTML=sum;
+
     y = x - sum;
 
-    document.getElementById("size3").innerHTML=sum;
     document.getElementById("size5").innerHTML=y;
 }
 
@@ -70,11 +71,13 @@ const handletable = (name ,value) => {
 
     let button=document.createElement("button");
     button.classList.add("fa-solid","fa-pen-to-square","edit");
+    button.style.color = "black";
     button.style.outline = "none";
     button.style.border = "none";
 
     let button1=document.createElement("button");
     button1.classList.add("fa-solid","fa-trash-can","delete");
+    button1.style.color = "black";
     button1.style.outline = "none";
     button1.style.border = "none";
     
@@ -101,6 +104,7 @@ const handleexpeses= () => {
         name:expnameref,
         cost:expvalueref
     });
+
     console.log(expensess);
 
     document.getElementById("budgetinput1").value = '';
