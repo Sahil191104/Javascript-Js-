@@ -45,6 +45,7 @@ const handlebom = () => {
 function handlebudget() {
     let x = document.getElementById("budgetinput").value;
     budgetValue = x;
+
     console.log(x);
     document.getElementById("size").innerHTML = x;
     document.getElementById("size5").innerHTML = x;
@@ -53,13 +54,17 @@ function handlebudget() {
 }
 
 const handledata = () => {
+    let localdata = JSON.parse(localStorage.getItem("Budget"));
+
     let y = 0;
     let sum = 0;
-    
-    expensess.map((a) => sum += parseInt(a.cost));
+
+    localdata.map((a) => sum += parseInt(a.cost));
     console.log(sum);
 
     y = budgetValue - sum;
+
+    localStorage.setItem("todo", JSON.stringify(localdata));
 
     document.getElementById("size3").innerHTML = sum;
     document.getElementById("size5").innerHTML = y;
@@ -107,15 +112,18 @@ const handletable = (name, value, randomnum) => {
 }
 
 const handledelete = (randomnum) => {
+    let localdata = JSON.parse(localStorage.getItem("Budget"));
+
     let trref = document.getElementById("row" + randomnum);
     console.log(trref);
     trref.remove();
 
-    // let fData = expensess.filter((a,i) => a.id === randomnum);
+    // let fData = localdata.filter((a,i) => a.id === randomnum);
 
-    expensess.map((a, i) => {
+    localdata.map((a, i) => {
         if (a.id === randomnum) {
-            expensess.splice(i, 1);
+            localdata.splice(i, 1);
+            localStorage.setItem("todo", JSON.stringify(localdata));
         }
     });
 
@@ -126,10 +134,11 @@ const handledelete = (randomnum) => {
 
 const handleedit = (id) => {
     // document.getElementById("tablebody").style.display = "none";
+    let localdata = JSON.parse(localStorage.getItem("Budget"));
 
     console.log("rbfgn");
 
-    let frdata = expensess.filter((a,i) => a.id === id);
+    let frdata = localdata.filter((a,i) => a.id === id);
 
     console.log(frdata);
 
@@ -138,6 +147,7 @@ const handleedit = (id) => {
 
     console.log(fname);
     console.log(fcost);
+    localStorage.setItem("todo", JSON.stringify(localdata));
 
     document.getElementById("budgetinput1").value = fname;
     document.getElementById("budgetinput1-1").value = fcost;
@@ -147,6 +157,8 @@ const handleedit = (id) => {
 }
 
 const handleexpeses = () => {
+    let localdata = JSON.parse(localStorage.getItem("Budget"));
+
     let expnameref = document.getElementById("budgetinput1").value;
     let expvalueref = document.getElementById("budgetinput1-1").value;
     // console.log(expvalueref,expnameref);
@@ -154,11 +166,21 @@ const handleexpeses = () => {
     let randomnum = Math.floor(Math.random() * 100);
     console.log(randomnum);
 
-    expensess.push({
-        id: randomnum,
-        name: expnameref,
-        cost: expvalueref
-    });
+    if (localdata) {
+        localdata.push({
+            id: randomnum,
+            name: expnameref,
+            cost: expvalueref
+        });
+        localStorage.setItem("todo", JSON.stringify(localdata));
+    } else {
+        expensess.push({
+            id: randomnum,
+            name: expnameref,
+            cost: expvalueref
+        });
+        localStorage.setItem("todo", JSON.stringify(expensess));
+    }
 
     console.log(expensess);
 
@@ -173,11 +195,13 @@ const handleexpeses = () => {
 }
 
 const handlenew = () => {
-    console.log("Upadate ALL");
+    let localdata = JSON.parse(localStorage.getItem("Budget"));
+    
+    console.log("Upadate");
     let newname = document.getElementById("budgetinput1").value;
     let newcost = document.getElementById("budgetinput1-1").value;
 
-    let uData = expensess.map((a) => {
+    let uData = localdata.map((a) => {
         if (a.id === uid) {
             return {
                 id:uid,
@@ -194,8 +218,7 @@ const handlenew = () => {
 
     tr.children[0].innerHTML = newname;
     tr.children[1].innerHTML = newcost;
-    document.getElementById("budgetinput1").value = '';
-    document.getElementById("budgetinput1-1").value = '';
+
     console.log(uData);
 }
 
