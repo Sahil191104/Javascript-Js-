@@ -11,8 +11,8 @@
     <script>
         function Students(id, formfees, name) {
             this.id = id;
-            this.name = name;
             this.formfees = formfees;
+            this.name = name;
 
             let totalfees = 18000;
 
@@ -24,6 +24,7 @@
 
             this.TotalFees = function () {
                 console.log(totalfees - this.formfees);
+                // 18000 - 1800 = 16200
             };
 
         }
