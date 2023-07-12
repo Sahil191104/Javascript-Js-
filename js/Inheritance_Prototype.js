@@ -17,4 +17,4 @@ p.__proto__ = {
 
 a.__proto__ = p
 a.run();
-console.log(a.name);
+console.log(a.name); 

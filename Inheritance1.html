@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance</title>
+</head>
+
+<body>
+
+    <script>
+        class Students {
+            id;
+            name;
+
+            constructor(i, n) {
+                this.id = i;
+                this.name = n;
+            }
+
+            basic_info() {
+                console.log("Id:" + this.id);
+                console.log("Name:" + this.name);
+            }
+
+            admission_procces() {
+                console.log("Date of the : 12-07-2023");
+            }
+        }
+
+        class Course extends Students {
+            course_name;
+
+            constructor(i, n, cn) {
+                super(i, n)
+                this.course_name = cn;
+            }
+
+            course_details() {
+                console.log("Id:" + this.id);
+                console.log("Name:" + this.name);
+                console.log("Course:" + this.course_name);
+                console.log("Course Duration:" + this.course_duration);
+            }
+
+            admission_procces() {
+                console.log("");
+            }
+        }
+
+        let c1 = new Course(101, "Ritu", "BCA");
+        // c1.__proto__.course_duration = "10 Month";
+        // c1.course_details();
+        // c1.basic_info();
+    </script>
+
+</body>
+
+</html>
