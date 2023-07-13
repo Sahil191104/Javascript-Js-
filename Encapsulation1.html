@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Employee {
+            id;
+            name;
+            #salary;
+            #instenvie;
+
+            constructor(i, n, s) {
+                this.id = i;
+                this.name = n;
+                this.#salary = s;
+            }
+
+            // Setter Method
+            set instenvie(i) {
+                this.#instenvie = i;
+            }
+
+            // Getter Method
+            get instenvie() {
+                return this.#instenvie;
+            }
+
+            #bonus() {
+                let bonus = this.#salary * 0.10;
+                console.log(bonus);
+            }
+
+            information() {
+                console.log("Id", this.id);
+                console.log("Name", this.name);
+                console.log("Salary", this.#salary);
+
+                this.#bonus();
+            }
+        }
+
+        let e1 = new Employee(101, 'amit', 50000);
+
+        e1.information();
+        e1.instenvie = 2000;
+
+        let res = e1.instenvie;
+        console.log('Your Instenvie is ' + res);
+
+    </script>
+</body>
+
+</html>
